@@ -1,0 +1,6 @@
+framework module Pods_ProductSearchIDDMVP {
+  umbrella header "Pods-ProductSearchIDDMVP-umbrella.h"
+
+  export *
+  module * { export * }
+}
