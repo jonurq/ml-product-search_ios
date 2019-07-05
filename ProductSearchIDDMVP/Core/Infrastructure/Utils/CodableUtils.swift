@@ -10,7 +10,9 @@ import Foundation
 
 class CodableUtils {
     static func decode<T: Codable>( _ data: Data?, model: T.Type) throws -> T {
-        guard let data = data else { throw CodableError.emptyData } //Return empty error
+        guard let data = data else {
+            throw CodableError.emptyData
+        }
         
         do {
             return try JSONDecoder().decode(T.self, from: data)

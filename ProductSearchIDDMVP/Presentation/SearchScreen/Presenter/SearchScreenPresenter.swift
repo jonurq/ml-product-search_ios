@@ -16,4 +16,22 @@ class SearchScreenPresenter {
     required init(searchProduct: SearchProductsProtocol) {
         self.searchProduct = searchProduct
     }
+    
+    func viewLoaded() {
+        view?.showLoading(show: true)
+        
+    }
+    
+    func searchProducts(with text: String) {
+        //TODO: RxSwift
+        do {
+            let products = try searchProduct.execute(query: Query(q: text, limit: 10, offset: 0))
+            view?.showProducts(products: products)
+        } catch {
+            view?.showError(show: true)
+        }
+        
+        
+        
+    }
 }

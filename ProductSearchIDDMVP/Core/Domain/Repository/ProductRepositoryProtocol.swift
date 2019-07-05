@@ -17,4 +17,8 @@ struct Query {
     let q: String
     let limit: Int
     let offset: Int
+    
+    func toParams() -> [String: Any] {
+        return ["q": q, "limit": limit, "offset": offset]
+    }
 }

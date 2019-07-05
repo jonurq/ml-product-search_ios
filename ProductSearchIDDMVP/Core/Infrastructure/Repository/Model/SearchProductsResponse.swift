@@ -11,7 +11,8 @@ import Foundation
 
 // MARK: - Response
 struct SearchProductsResponse: Codable {
-    let siteID, query: String
+    let siteID: String
+    let query: String?
     let paging: Paging
     let results: [ItemResponse]
     

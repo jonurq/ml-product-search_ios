@@ -20,7 +20,7 @@ class ProductRepository {
 extension ProductRepository: ProductRepositoryProtocol {
     func searchProduct(q: Query) throws -> [ProductItem] {
         
-        let (data, error) = service.get(path: "/sites/MLA/search", params: nil)
+        let (data, error) = service.get(path: "/sites/MLA/search", params: q.toParams())
         
         if let error = error {
             throw ApiError.error(error)

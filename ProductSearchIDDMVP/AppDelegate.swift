@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         
         let viewController = SearchScreenInstance.viewController()
-        let navigation = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = navigation
+        let navigationController = UINavigationController(rootViewController: viewController)
+
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }
