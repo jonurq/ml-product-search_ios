@@ -30,6 +30,7 @@ class SearchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search"
+        self.definesPresentationContext = true
         
         setupSearchController()
     }

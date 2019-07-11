@@ -26,7 +26,7 @@ struct SearchProductsResponse: Codable {
         
         var products = [ProductItem]()
         results.forEach({ item in
-            products.append(ProductItem(id: item.id))
+            products.append(ProductItem(id: item.id, title: item.title, price: item.price, condition: item.condition))
         })
         
         return products

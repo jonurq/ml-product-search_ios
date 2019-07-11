@@ -33,6 +33,8 @@
 		D09736C422CBED280037DD6A /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09736C322CBED280037DD6A /* SearchScreenViewController.swift */; };
 		D09736C622CBEE780037DD6A /* SearchScreenViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09736C522CBEE780037DD6A /* SearchScreenViewControllerProtocol.swift */; };
 		D09736C822CBF1EB0037DD6A /* SearchProductsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09736C722CBF1EB0037DD6A /* SearchProductsProtocol.swift */; };
+		D0A3379E22D655AE003F2DED /* UIView-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3379D22D655AE003F2DED /* UIView-extension.swift */; };
+		D0A337A022D6662F003F2DED /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3379F22D6662F003F2DED /* UIColor-extension.swift */; };
 		D0E52E9922BBD3DD007B0C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E52E9822BBD3DD007B0C70 /* AppDelegate.swift */; };
 		D0E52EA022BBD3DF007B0C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E52E9F22BBD3DF007B0C70 /* Assets.xcassets */; };
 		D0E52EA322BBD3DF007B0C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E52EA122BBD3DF007B0C70 /* LaunchScreen.storyboard */; };
@@ -85,6 +87,8 @@
 		D09736C322CBED280037DD6A /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		D09736C522CBEE780037DD6A /* SearchScreenViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewControllerProtocol.swift; sourceTree = "<group>"; };
 		D09736C722CBF1EB0037DD6A /* SearchProductsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsProtocol.swift; sourceTree = "<group>"; };
+		D0A3379D22D655AE003F2DED /* UIView-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-extension.swift"; sourceTree = "<group>"; };
+		D0A3379F22D6662F003F2DED /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		D0E52E9522BBD3DD007B0C70 /* ProductSearchIDDMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductSearchIDDMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E52E9822BBD3DD007B0C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E52E9F22BBD3DF007B0C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				D02B370522CE4C1D00C08C8F /* Cells */,
+				D0A3379D22D655AE003F2DED /* UIView-extension.swift */,
+				D0A3379F22D6662F003F2DED /* UIColor-extension.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				D09736B222CBD9C80037DD6A /* CodableUtils.swift in Sources */,
 				D06C22C322C2A76800453157 /* ProductAppInstance.swift in Sources */,
 				D0077DB422C51A5000C81D84 /* ProductDetailResponse.swift in Sources */,
+				D0A337A022D6662F003F2DED /* UIColor-extension.swift in Sources */,
 				D09736C822CBF1EB0037DD6A /* SearchProductsProtocol.swift in Sources */,
 				D0077DB822C6983800C81D84 /* AFProductService.swift in Sources */,
 				D09736C422CBED280037DD6A /* SearchScreenViewController.swift in Sources */,
@@ -609,6 +616,7 @@
 				D09736C622CBEE780037DD6A /* SearchScreenViewControllerProtocol.swift in Sources */,
 				D09736C222CBED080037DD6A /* SearchScreenPresenter.swift in Sources */,
 				D06C22B922C29E2A00453157 /* ProductItem.swift in Sources */,
+				D0A3379E22D655AE003F2DED /* UIView-extension.swift in Sources */,
 				D0E52E9922BBD3DD007B0C70 /* AppDelegate.swift in Sources */,
 				D09736BA22CBEB150037DD6A /* DomainError.swift in Sources */,
 				D09736C022CBEC590037DD6A /* SearchScreenInstance.swift in Sources */,

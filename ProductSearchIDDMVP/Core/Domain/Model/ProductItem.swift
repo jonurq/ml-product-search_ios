@@ -9,5 +9,23 @@
 import Foundation
 
 struct ProductItem {
-    let id: String
+    let id, title: String
+    let price: Double
+    let condition: String
+    
+    var formattedPrice: String {
+        return "$ \(price)"
+    }
+    
+    var formattedCondition: String {
+        switch condition {
+        case "new":
+            return "Nuevo"
+        case "used":
+            return "Usado"
+            
+        default:
+            return ""
+        }
+    }
 }

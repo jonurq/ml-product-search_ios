@@ -12,57 +12,108 @@ class SearchScreenCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .green
-        imageView.heightAnchor.constraint(equalToConstant: 92).isActive = true
-        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = "iPhone Xs MAX 64Gb"
+        titleLabel.numberOfLines = 3
+        titleLabel.font = UIFont.systemFont(ofSize: 14.0)
         return titleLabel
     }()
     
     private let amountLabel: UILabel = {
         let amountLabel = UILabel()
-        amountLabel.text = "$ 64.000"
+        amountLabel.numberOfLines = 0
+        amountLabel.font = UIFont.boldSystemFont(ofSize: 14.0)
         return amountLabel
     }()
     
     private let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
-        descriptionLabel.text = "$ 64.000"
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = UIFont.systemFont(ofSize: 12.0)
         return descriptionLabel
     }()
     
-    func configure(model: ProductItem) {
-        titleLabel.text = model.id
-        
-        
-        let detailsStackView = UIStackView(arrangedSubviews: [titleLabel, amountLabel, descriptionLabel])
+    private let detailsStackView: UIStackView = {
+        let detailsStackView = UIStackView()
+        detailsStackView.translatesAutoresizingMaskIntoConstraints = false
         detailsStackView.axis = .vertical
-        detailsStackView.spacing = 0
+        detailsStackView.spacing = 8
         detailsStackView.alignment = .fill
-        detailsStackView.distribution = .fill
+        detailsStackView.distribution = .equalCentering
+        return detailsStackView
+    }()
+    
+    private let containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    func configure(model: ProductItem) {
+        setupView()
+        setupConstraints()
+        setup(with: model)
+    }
+    
+    func setupView() {
+        backgroundColor = .clear
         
-        let containerStackView = UIStackView(arrangedSubviews: [imageView, detailsStackView])
-        containerStackView.axis = .horizontal
-        containerStackView.spacing = 12
-        containerStackView.alignment = .fill
-        containerStackView.distribution = .fill
+        detailsStackView.addArrangedSubview(titleLabel)
+        detailsStackView.addArrangedSubview(amountLabel)
+        detailsStackView.addArrangedSubview(descriptionLabel)
         
-        addSubview(containerStackView)
+        containerView.addSubview(imageView)
+        containerView.addSubview(detailsStackView)
         
-        containerStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(containerView)
         
+        
+        containerView.setShadow()
+        containerView.roundCorners()
+    }
+    
+    func setupConstraints() {
+        //Image
         NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            containerStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
+            ])
+        
+        //Details
+        NSLayoutConstraint.activate([
+            detailsStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+            detailsStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            detailsStackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            detailsStackView.topAnchor.constraint(greaterThanOrEqualTo: containerView.topAnchor, constant: 8),
+            detailsStackView.bottomAnchor.constraint(greaterThanOrEqualTo: containerView.bottomAnchor, constant: -8)
+            ])
+        
+        
+        //Container
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             ])
     }
+    
+    func setup(with model: ProductItem) {
+        titleLabel.text = model.title
+        amountLabel.text = model.formattedPrice
+        descriptionLabel.text = model.formattedCondition
+    }
+    
+    //Consulta: Download image, en donde?
     
 }
 

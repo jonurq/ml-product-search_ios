@@ -24,6 +24,7 @@ class SearchScreenPresenter {
     
     func searchProducts(with text: String) {
         //TODO: RxSwift
+        //Consulta: Si necesito logica que modifique los datos que le pido al dominio, donde lo hago?
         do {
             let products = try searchProduct.execute(query: Query(q: text, limit: 10, offset: 0))
             view?.showProducts(products: products)

@@ -14,7 +14,7 @@ class SearchScreenView: UIView {
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumLineSpacing = 0.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
@@ -69,11 +69,18 @@ extension SearchScreenView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchScreenCollectionViewCell.cellId, for: indexPath) as! SearchScreenCollectionViewCell
         cell.configure(model: products[indexPath.row])
-        cell.backgroundColor = .red
         return cell
     }
 }
 
 extension SearchScreenView: UICollectionViewDelegate {
     
+}
+
+extension SearchScreenView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return .init(width: frame.width, height: 130)
+    }
+
 }
