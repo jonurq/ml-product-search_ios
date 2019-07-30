@@ -13,19 +13,10 @@ struct ProductItem {
     let price: Double
     let condition: String
     
-    var formattedPrice: String {
-        return "$ \(price)"
-    }
-    
-    var formattedCondition: String {
-        switch condition {
-        case "new":
-            return "Nuevo"
-        case "used":
-            return "Usado"
-            
-        default:
-            return ""
-        }
-    }
+    //Agregar failable init
+//    init?(id: String, title: String, price: Double, condition: String) {
+//        if price < 0 {
+//            return nil
+//        }
+//    }
 }

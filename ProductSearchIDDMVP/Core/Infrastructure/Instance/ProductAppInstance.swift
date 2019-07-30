@@ -22,7 +22,8 @@ struct ProductAppInstance {
         return GetProductDetail(repository: productRepository())
     }
     
-    static func productRepository() -> ProductRepositoryProtocol {
-        return ProductRepository(service: AFProductService(baseUrl: baseUrl))
+    static private func productRepository() -> ProductRepositoryProtocol {
+        //TODO: Database
+        return RealmCacheProductRepository(source: GenericHTTPProductRepository(service: AFProductService(baseUrl: baseUrl)), databaseSource: [])
     }
 }

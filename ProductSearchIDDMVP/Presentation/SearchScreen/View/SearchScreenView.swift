@@ -10,8 +10,9 @@ import UIKit
 
 class SearchScreenView: UIView {
     
-    var products: [ProductItem] = []
-
+    var products: [ProductModel] = []
+    weak var delegate: SearchScreenViewProtocol?
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0.0
@@ -31,7 +32,7 @@ class SearchScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateProducts(_ newProducts: [ProductItem]) {
+    func updateProducts(_ newProducts: [ProductModel]) {
         products = newProducts
         collectionView.reloadData()
     }
@@ -74,7 +75,11 @@ extension SearchScreenView: UICollectionViewDataSource {
 }
 
 extension SearchScreenView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: Coordinator
+        delegate?.itemClick(id: products[indexPath.row].id)
+        
+    }
 }
 
 extension SearchScreenView: UICollectionViewDelegateFlowLayout {

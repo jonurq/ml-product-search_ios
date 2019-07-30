@@ -11,5 +11,6 @@ import Foundation
 protocol SearchScreenViewControllerProtocol: class {
     func showLoading(show: Bool)
     func showError(show: Bool)
-    func showProducts(products: [ProductItem])
+    func showProducts(products: [ProductModel])
+    func goToDetail(id: String)
 }

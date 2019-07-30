@@ -55,7 +55,7 @@ class SearchScreenCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    func configure(model: ProductItem) {
+    func configure(model: ProductModel) {
         setupView()
         setupConstraints()
         setup(with: model)
@@ -107,10 +107,11 @@ class SearchScreenCollectionViewCell: UICollectionViewCell {
             ])
     }
     
-    func setup(with model: ProductItem) {
+    func setup(with model: ProductModel) {
         titleLabel.text = model.title
-        amountLabel.text = model.formattedPrice
-        descriptionLabel.text = model.formattedCondition
+        amountLabel.text = model.price
+        descriptionLabel.text = model.condition
+        //imageView.image = sd_image(model.image)
     }
     
     //Consulta: Download image, en donde?

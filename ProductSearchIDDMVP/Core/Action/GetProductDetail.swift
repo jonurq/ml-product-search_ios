@@ -14,4 +14,8 @@ class GetProductDetail {
     required init(repository: ProductRepositoryProtocol) {
         self.productRepository = repository
     }
+    
+    func execute(id: String) throws -> ProductDetail {
+        return try PerformAction.perform(productRepository.getProductDetail(id: id), orThrow: DomainError.genericError)
+    }
 }

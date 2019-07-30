@@ -21,15 +21,8 @@ struct SearchProductsResponse: Codable {
         case query, paging, results
     }
     
-    
     func toModel() -> [ProductItem] {
-        
-        var products = [ProductItem]()
-        results.forEach({ item in
-            products.append(ProductItem(id: item.id, title: item.title, price: item.price, condition: item.condition))
-        })
-        
-        return products
+        return results.compactMap { $0.toModel() }
     }
 }
 
@@ -79,6 +72,10 @@ struct ItemResponse: Codable {
         case originalPrice = "original_price"
         case categoryID = "category_id"
         case tags
+    }
+    
+    func toModel() -> ProductItem {
+        return ProductItem(id: id, title: title, price: price, condition: condition)
     }
 }
 

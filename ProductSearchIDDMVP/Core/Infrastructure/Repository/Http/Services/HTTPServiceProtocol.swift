@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol ProductServiceProtocol {
-    
+protocol HTTPServiceProtocol {
     func get(path: String, params: [String: Any]?) -> (Data?, Error?)
 }

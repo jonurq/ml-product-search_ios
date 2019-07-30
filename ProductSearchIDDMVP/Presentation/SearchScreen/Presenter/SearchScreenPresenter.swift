@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import RxSwift
 
 class SearchScreenPresenter {
     
     weak var view: SearchScreenViewControllerProtocol?
-    let searchProduct: SearchProductsProtocol
+    let searchProduct: SearchProducts
+    let disposeBag = DisposeBag()
     
-    required init(searchProduct: SearchProductsProtocol) {
+    required init(searchProduct: SearchProducts) {
         self.searchProduct = searchProduct
     }
     
@@ -22,17 +24,29 @@ class SearchScreenPresenter {
         
     }
     
-    func searchProducts(with text: String) {
-        //TODO: RxSwift
-        //Consulta: Si necesito logica que modifique los datos que le pido al dominio, donde lo hago?
-        do {
-            let products = try searchProduct.execute(query: Query(q: text, limit: 10, offset: 0))
-            view?.showProducts(products: products)
-        } catch {
-            view?.showError(show: true)
-        }
-        
-        
-        
+//    func searchProducts(with text: String) {
+//        //TODO: RxSwift
+//        
+//        do {
+//            let products = try searchProduct.execute(query: Query(q: text, limit: 10, offset: 0))
+//            view?.showProducts(products: products.compactMap(ProductModel.fromDomain(productItem:)))
+//        } catch {
+//            view?.showError(show: true)
+//        }
+//    }
+    
+    func onSearchProduct(query: String) {
+        searchProduct.executeRX(query: Query(q: query, limit: 10, offset: 0))
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .default))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] (products) in
+                self?.view?.showProducts(products: products.compactMap(ProductModel.fromDomain(productItem:)))
+            }) { [weak self] (error) in
+                self?.view?.showError(show: true)
+        }.disposed(by: disposeBag)
+    }
+    
+    func onItemClick(id: String) {
+        view?.goToDetail(id: id)
     }
 }

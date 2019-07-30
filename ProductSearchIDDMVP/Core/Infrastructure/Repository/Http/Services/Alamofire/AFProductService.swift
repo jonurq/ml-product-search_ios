@@ -9,7 +9,7 @@
 import Alamofire
 import Alamofire_Synchronous
 
-class AFProductService: ProductServiceProtocol {    
+class AFProductService: HTTPServiceProtocol {    
     private let baseUrl: String
     
     required init(baseUrl: String) {

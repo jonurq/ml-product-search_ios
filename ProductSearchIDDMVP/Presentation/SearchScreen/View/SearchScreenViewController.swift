@@ -24,6 +24,7 @@ class SearchScreenViewController: UIViewController {
     
     override func loadView() {
         let view = searchScreenView
+        view.delegate = self
         self.view = view
     }
     
@@ -60,11 +61,16 @@ extension SearchScreenViewController: UISearchBarDelegate {
             return
         }
         
-        presenter.searchProducts(with: textToSearch)
+        presenter.onSearchProduct(query: textToSearch)
     }
 }
 
 extension SearchScreenViewController: SearchScreenViewControllerProtocol {
+    func goToDetail(id: String) {
+        let detailViewController = DetailScreenInstance.viewController(id: id)
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
     func showLoading(show: Bool) {
         //TODO:
     }
@@ -73,9 +79,13 @@ extension SearchScreenViewController: SearchScreenViewControllerProtocol {
         //TODO:
     }
     
-    func showProducts(products: [ProductItem]) {
+    func showProducts(products: [ProductModel]) {
         searchScreenView.updateProducts(products)
     }
-    
-    
+}
+
+extension SearchScreenViewController: SearchScreenViewProtocol {
+    func itemClick(id: String) {
+        presenter.onItemClick(id: id)
+    }
 }

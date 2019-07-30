@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import RxSwift
+
 @testable import ProductSearchIDDMVP
 
 class ProductSearchIDDMVPTests: XCTestCase {
@@ -20,8 +22,23 @@ class ProductSearchIDDMVPTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        Single.just(helloworld())
+//            .subscribe(onSuccess: { (hello) in
+//            print("El resultado es \(hello)")
+//        }) { (error) in
+//            print("El error es \(error)")
+//        }
+    }
+    
+    func testExampleDeferred() {
+        Single.deferred { () -> PrimitiveSequence<SingleTrait, String> in
+            Single.just(self.helloworld())
+            }
+//            .subscribe(onSuccess: { (hello) in
+//                print("El resultado es \(hello)")
+//            }) { (error) in
+//                print("El error es \(error)")
+//        }
     }
 
     func testPerformanceExample() {
@@ -29,6 +46,11 @@ class ProductSearchIDDMVPTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func helloworld() -> String {
+        print("Estoy ejecutando el metodo")
+        return "hola"
     }
 
 }

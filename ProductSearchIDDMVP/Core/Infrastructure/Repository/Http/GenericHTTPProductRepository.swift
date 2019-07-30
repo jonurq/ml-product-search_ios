@@ -1,5 +1,5 @@
 //
-//  ProductRepository.swift
+//  GenericHTTPProductRepository.swift
 //  ProductSearchIDDMVP
 //
 //  Created by Jonatan Urquiza on 6/25/19.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class ProductRepository {
+class GenericHTTPProductRepository {
     
-    private let service: ProductServiceProtocol
+    private let service: HTTPServiceProtocol
     
-    required init(service: ProductServiceProtocol) {
+    required init(service: HTTPServiceProtocol) {
         self.service = service
     }
 }
 
-extension ProductRepository: ProductRepositoryProtocol {
+extension GenericHTTPProductRepository: ProductRepositoryProtocol {
     func searchProduct(q: Query) throws -> [ProductItem] {
         
         let (data, error) = service.get(path: "/sites/MLA/search", params: q.toParams())
