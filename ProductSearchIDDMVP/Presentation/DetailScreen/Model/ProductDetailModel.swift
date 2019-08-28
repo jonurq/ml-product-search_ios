@@ -11,6 +11,7 @@ import Foundation
 struct ProductDetailModel {
     let id: String
     
+    
     static func fromDomain(productDetail: ProductDetail) -> ProductDetailModel {
         return ProductDetailModel(id: productDetail.id)
     }

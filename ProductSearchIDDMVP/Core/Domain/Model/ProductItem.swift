@@ -11,12 +11,5 @@ import Foundation
 struct ProductItem {
     let id, title: String
     let price: Double
-    let condition: String
-    
-    //Agregar failable init
-//    init?(id: String, title: String, price: Double, condition: String) {
-//        if price < 0 {
-//            return nil
-//        }
-//    }
+    let condition, image: String
 }

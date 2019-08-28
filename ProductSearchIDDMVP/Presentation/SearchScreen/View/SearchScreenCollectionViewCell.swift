@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchScreenCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .green
+        imageView.backgroundColor = .white
         return imageView
     }()
     
@@ -111,11 +112,8 @@ class SearchScreenCollectionViewCell: UICollectionViewCell {
         titleLabel.text = model.title
         amountLabel.text = model.price
         descriptionLabel.text = model.condition
-        //imageView.image = sd_image(model.image)
+        imageView.sd_setImage(with: URL(string: model.image), placeholderImage: nil)
     }
-    
-    //Consulta: Download image, en donde?
-    
 }
 
 extension SearchScreenCollectionViewCell: BaseCellProtocol {

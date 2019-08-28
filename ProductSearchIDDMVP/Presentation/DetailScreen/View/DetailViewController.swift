@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailScreenViewControllerProtocol {
     func showDetail(model: ProductDetailModel) {
-        detailScreenView.setupTitle(model.id)
+        detailScreenView.setupModel(model)
     }
     
     func showLoading(show: Bool) {

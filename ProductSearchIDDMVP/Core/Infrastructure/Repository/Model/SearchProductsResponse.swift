@@ -75,7 +75,7 @@ struct ItemResponse: Codable {
     }
     
     func toModel() -> ProductItem {
-        return ProductItem(id: id, title: title, price: price, condition: condition)
+        return ProductItem(id: id, title: title, price: price, condition: condition, image: thumbnail)
     }
 }
 
@@ -121,7 +121,7 @@ struct Seller: Codable {
 
 // MARK: - SellerAddress
 struct SellerAddress: Codable {
-    let id, comment, addressLine, zipCode: String
+    let id, comment, addressLine, zipCode: String?
     let country, state, city: City
     let latitude, longitude: String
     

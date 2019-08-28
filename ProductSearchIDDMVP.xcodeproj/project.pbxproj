@@ -43,6 +43,7 @@
 		D0A3379E22D655AE003F2DED /* UIView-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3379D22D655AE003F2DED /* UIView-extension.swift */; };
 		D0A337A022D6662F003F2DED /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3379F22D6662F003F2DED /* UIColor-extension.swift */; };
 		D0B6DC6322EB9CE1001936EF /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DC6222EB9CE1001936EF /* ProductDetailModel.swift */; };
+		D0B6DC6F22F0D8D2001936EF /* DetailPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DC6E22F0D8D2001936EF /* DetailPictureCollectionViewCell.swift */; };
 		D0E52E9922BBD3DD007B0C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E52E9822BBD3DD007B0C70 /* AppDelegate.swift */; };
 		D0E52EA022BBD3DF007B0C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E52E9F22BBD3DF007B0C70 /* Assets.xcassets */; };
 		D0E52EA322BBD3DF007B0C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E52EA122BBD3DF007B0C70 /* LaunchScreen.storyboard */; };
@@ -105,6 +106,7 @@
 		D0A3379D22D655AE003F2DED /* UIView-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-extension.swift"; sourceTree = "<group>"; };
 		D0A3379F22D6662F003F2DED /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		D0B6DC6222EB9CE1001936EF /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
+		D0B6DC6E22F0D8D2001936EF /* DetailPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0E52E9522BBD3DD007B0C70 /* ProductSearchIDDMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductSearchIDDMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E52E9822BBD3DD007B0C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E52E9F22BBD3DF007B0C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				D0780C3E22E780A80064687D /* DetailViewController.swift */,
 				D0780C4422E7882F0064687D /* DetailScreenView.swift */,
+				D0B6DC6E22F0D8D2001936EF /* DetailPictureCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -669,7 +672,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ProductSearchIDDMVP/Pods-ProductSearchIDDMVP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
+				"${BUILT_PRODUCTS_DIR}/MagazineLayout/MagazineLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -677,7 +682,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagazineLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -725,6 +732,7 @@
 				D0780C3F22E780A80064687D /* DetailViewController.swift in Sources */,
 				D06C22B522C29DEE00453157 /* SearchProducts.swift in Sources */,
 				D02B370722CE4D8900C08C8F /* BaseCellProtocol.swift in Sources */,
+				D0B6DC6F22F0D8D2001936EF /* DetailPictureCollectionViewCell.swift in Sources */,
 				D0780C4122E781450064687D /* DetailScreenPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

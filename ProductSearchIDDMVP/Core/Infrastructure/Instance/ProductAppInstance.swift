@@ -24,6 +24,8 @@ struct ProductAppInstance {
     
     static private func productRepository() -> ProductRepositoryProtocol {
         //TODO: Database
+        
+        
         return RealmCacheProductRepository(source: GenericHTTPProductRepository(service: AFProductService(baseUrl: baseUrl)), databaseSource: [])
     }
 }
